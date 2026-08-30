@@ -50,5 +50,10 @@
     "typescript": "^5",
     "vitest": "^4.1.11"
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,jsonc,css}": [
+      "biome check --write --no-errors-on-unmatched"
+    ]
+  },
   "packageManager": "pnpm@11.24.0"
 }
