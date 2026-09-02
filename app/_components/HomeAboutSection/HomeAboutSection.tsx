@@ -81,13 +81,13 @@ const HomeAboutSection = () => {
         >
           {galleryImages.map((image) => (
             <motion.figure key={image.title} variants={galleryItemVariants}>
-              <div className="relative overflow-hidden rounded-2xl border border-border bg-surface">
+              <div className="group relative overflow-hidden rounded-2xl border border-border bg-surface">
                 <Image
                   src={image.src}
                   alt={image.alt}
                   width={900}
                   height={900}
-                  className="h-72 w-full object-cover transition-transform duration-300 hover:scale-105 sm:h-80"
+                  className="h-72 w-full object-cover transition-transform duration-300 group-hover:scale-105 sm:h-80"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
                 <figcaption className="absolute inset-x-0 bottom-0 p-4 text-left text-sm font-medium uppercase tracking-[0.2em] text-white">
