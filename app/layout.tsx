@@ -1,4 +1,5 @@
 import './global.css';
+import { MotionConfig } from 'motion/react';
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, Montserrat } from 'next/font/google';
 import MainLayout from '@/shared/layouts/MainLayout/MainLayout';
@@ -25,7 +26,9 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html lang="en" className={`${cormorant.variable} ${montserrat.variable} h-full antialiased `}>
       <body className="min-h-full flex flex-col">
-        <MainLayout>{children}</MainLayout>
+        <MotionConfig reducedMotion="user">
+          <MainLayout>{children}</MainLayout>
+        </MotionConfig>
       </body>
     </html>
   );

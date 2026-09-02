@@ -52,6 +52,8 @@ const HomeHighlights = () => {
           <motion.article
             key={title}
             variants={cardVariants}
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             className="rounded-2xl border border-border bg-background-secondary p-6 md:p-7"
           >
             <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-foreground text-accent">
