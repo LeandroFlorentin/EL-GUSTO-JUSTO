@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand */
+  --primary: #1f2d24;
+  --primary-hover: #2a3d31;
+  --primary-focus: #354d3e;
+  --primary-disabled: #9aa59f;
+
+  --accent: #d4a23f;
+  --accent-hover: #bd8d2e;
+  --accent-focus: #e0b55b;
+  --accent-disabled: #d9c79f;
+
+  /* Backgrounds */
+  --background: #f7f3e9;
+  --background-secondary: #eee9dd;
+
+  /* Text */
+  --foreground: #1e1e1e;
+  --foreground-muted: #6f6b64;
+  --foreground-disabled: #a8a49d;
+
+  /* Surfaces */
+  --surface: #ffffff;
+  --surface-hover: #faf8f3;
+
+  /* Borders */
+  --border: #e6e6e6;
+  --border-hover: #cfcfcf;
+  --border-focus: #d4a23f;
+  --border-disabled: #eeeeee;
+
+  /* Semantic */
+  --success: #3f6b4f;
+  --warning: #c58d2a;
+  --danger: #a94442;
+
+  /* Focus ring */
+  --focus-ring: #d4a23f;
+}
+
+@theme inline {
+  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-montserrat);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-focus: var(--primary-focus);
+  --color-primary-disabled: var(--primary-disabled);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-focus: var(--accent-focus);
+  --color-accent-disabled: var(--accent-disabled);
+
+  --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-disabled: var(--foreground-disabled);
+
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+  --color-border-focus: var(--border-focus);
+  --color-border-disabled: var(--border-disabled);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+
+  --color-focus-ring: var(--focus-ring);
+}
