@@ -1,4 +1,17 @@
+'use client';
+
 import { ArrowRight } from 'lucide-react';
+import { motion } from 'motion/react';
+
+const containerVariants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
+};
 
 const HomeHero = () => {
   return (
@@ -10,18 +23,23 @@ const HomeHero = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-black/95 from-25% via-black/65 via-38% to-black/10 to-100%" />
 
       <div className="relative mx-auto flex min-h-[620px] max-w-7xl items-center px-4 py-20 sm:px-6 lg:px-8">
-        <div className="max-w-xl text-white">
-          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.32em] text-accent">Catering & eventos</p>
+        <motion.div className="max-w-xl text-white" variants={containerVariants} initial="hidden" animate="show">
+          <motion.p
+            variants={itemVariants}
+            className="mb-5 text-xs font-semibold uppercase tracking-[0.32em] text-accent"
+          >
+            Catering & eventos
+          </motion.p>
 
-          <h1 className="font-serif text-5xl leading-none md:text-7xl">
+          <motion.h1 variants={itemVariants} className="font-serif text-5xl leading-none md:text-7xl">
             Sabores que <span className="italic text-accent">se recuerdan</span>
-          </h1>
+          </motion.h1>
 
-          <p className="mt-6 max-w-md text-base leading-7 text-white/85 md:text-lg">
+          <motion.p variants={itemVariants} className="mt-6 max-w-md text-base leading-7 text-white/85 md:text-lg">
             Creamos propuestas saladas y dulces para bodas, celebraciones y reuniones donde cada detalle importa.
-          </p>
+          </motion.p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+          <motion.div variants={itemVariants} className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href="#contacto"
               className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
@@ -36,8 +54,8 @@ const HomeHero = () => {
             >
               Ver servicios
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
