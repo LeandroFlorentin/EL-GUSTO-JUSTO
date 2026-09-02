@@ -1,5 +1,9 @@
+'use client';
+
 import { ArrowRight } from 'lucide-react';
+import { motion } from 'motion/react';
 import Image from 'next/image';
+import ScrollReveal from '@/shared/components/ScrollReveal/ScrollReveal';
 
 const galleryImages = [
   {
@@ -24,41 +28,59 @@ const galleryImages = [
   },
 ];
 
+const galleryContainerVariants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
+};
+
+const galleryItemVariants = {
+  hidden: { opacity: 0, y: 24, scale: 0.97 },
+  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const } },
+};
+
 const HomeAboutSection = () => {
   return (
     <section id="nosotros" className="bg-surface py-16 lg:py-20">
       <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[1.05fr_1.4fr] lg:px-8">
-        <div>
-          <p className="mb-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.26em] text-accent">
-            <span className="inline-block h-2.5 w-2.5 rounded-full bg-accent" aria-hidden="true" />
-            Sobre nosotros
-          </p>
+        <ScrollReveal direction="right">
+          <div>
+            <p className="mb-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.26em] text-accent">
+              <span className="inline-block h-2.5 w-2.5 rounded-full bg-accent" aria-hidden="true" />
+              Sobre nosotros
+            </p>
 
-          <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">Sobre nosotros</h2>
+            <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">Sobre nosotros</h2>
 
-          <p className="mt-4 font-serif text-3xl leading-tight text-foreground md:text-4xl">
-            Sabores salados y dulces pensados para cada detalle.
-          </p>
+            <p className="mt-4 font-serif text-3xl leading-tight text-foreground md:text-4xl">
+              Sabores salados y dulces pensados para cada detalle.
+            </p>
 
-          <div className="mt-6 h-px w-20 bg-accent" aria-hidden="true" />
+            <div className="mt-6 h-px w-20 bg-accent" aria-hidden="true" />
 
-          <p className="mt-6 max-w-xl text-base leading-7 text-foreground-muted">
-            Combinamos cocina salada, pastelería y mesas dulces con atención personalizada para crear celebraciones
-            únicas, sabrosas y memorables.
-          </p>
+            <p className="mt-6 max-w-xl text-base leading-7 text-foreground-muted">
+              Combinamos cocina salada, pastelería y mesas dulces con atención personalizada para crear celebraciones
+              únicas, sabrosas y memorables.
+            </p>
 
-          <a
-            href="#contacto"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
-          >
-            Cotizar evento
-            <ArrowRight size={16} />
-          </a>
-        </div>
+            <a
+              href="#contacto"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
+            >
+              Cotizar evento
+              <ArrowRight size={16} />
+            </a>
+          </div>
+        </ScrollReveal>
 
-        <div className="grid gap-4 sm:grid-cols-2">
+        <motion.div
+          className="grid gap-4 sm:grid-cols-2"
+          variants={galleryContainerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+        >
           {galleryImages.map((image) => (
-            <figure key={image.title}>
+            <motion.figure key={image.title} variants={galleryItemVariants}>
               <div className="relative overflow-hidden rounded-2xl border border-border bg-surface">
                 <Image
                   src={image.src}
@@ -72,9 +94,9 @@ const HomeAboutSection = () => {
                   {image.title}
                 </figcaption>
               </div>
-            </figure>
+            </motion.figure>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
