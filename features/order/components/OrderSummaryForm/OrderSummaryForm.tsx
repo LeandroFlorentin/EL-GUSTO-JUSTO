@@ -48,8 +48,7 @@ const OrderSummaryForm = () => {
         </label>
         <input
           id="order-event-date"
-          type="text"
-          placeholder="15/12/2026"
+          type="date"
           required
           value={eventDate}
           onChange={(event) => setEventDate(event.target.value)}

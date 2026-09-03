@@ -11,9 +11,9 @@ const Providers = ({ children }: ProvidersProps) => {
   const [queryClient] = useState(() => new QueryClient());
 
   useEffect(() => {
-    if (process.env.NODE_ENV === 'production') {
-      return;
-    }
+    //if (process.env.NODE_ENV === 'production') {
+    //return;
+    //}
 
     import('@/mocks/browser').then(({ enableMocking }) => {
       enableMocking().catch((error) => console.error('MSW setup failed', error));
