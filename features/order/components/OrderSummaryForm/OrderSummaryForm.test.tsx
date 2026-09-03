@@ -50,7 +50,7 @@ describe('OrderSummaryForm', () => {
     await userEvent.type(screen.getByLabelText(/nombre/i), 'Juan');
     expect(submitButton).toBeDisabled();
 
-    await userEvent.type(screen.getByLabelText(/fecha del evento/i), '15/12/2026');
+    await userEvent.type(screen.getByLabelText(/fecha del evento/i), '2026-12-15');
     expect(submitButton).toBeEnabled();
   });
 
@@ -67,12 +67,12 @@ describe('OrderSummaryForm', () => {
 
     await userEvent.click(screen.getByRole('button', { name: /agregar helper/i }));
     await userEvent.type(screen.getByLabelText(/nombre/i), 'Juan');
-    await userEvent.type(screen.getByLabelText(/fecha del evento/i), '15/12/2026');
+    await userEvent.type(screen.getByLabelText(/fecha del evento/i), '2026-12-15');
     await userEvent.click(screen.getByRole('button', { name: /finalizar pedido por whatsapp/i }));
 
     expect(openSpy).toHaveBeenCalledTimes(1);
     const [url] = openSpy.mock.calls[0];
-    expect(String(url)).toContain('https://wa.me/5491161792902?text=');
+    expect(String(url)).toContain('https://wa.me/5491100000000?text=');
     expect(String(url)).toContain(encodeURIComponent('Caja Dulce'));
     expect(String(url)).toContain(encodeURIComponent('Juan'));
   });
