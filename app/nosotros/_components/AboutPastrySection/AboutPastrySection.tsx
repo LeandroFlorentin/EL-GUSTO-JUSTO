@@ -31,7 +31,7 @@ const AboutPastrySection = () => {
 
             <p className="mt-6 max-w-xl text-base leading-7 text-foreground-muted">
               Proponemos combinaciones pensadas con cariño, pero siempre pueden hacerse a tu manera: si querés cambiar
-              algún producto por otro de nuestro catálogo, lo conversamos y lo adaptamos a tu evento.
+              algún producto por otro de nuestros servicios, lo conversamos y lo adaptamos a tu evento.
             </p>
           </div>
         </ScrollReveal>

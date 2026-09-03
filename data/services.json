@@ -1,0 +1,60 @@
+{
+  "sweet": [
+    {
+      "id": "sweet-box-classic",
+      "type": "sweet-box",
+      "name": "Caja Dulce Clásica",
+      "description": "Una selección de nuestros clásicos dulces, ideal para acompañar cualquier celebración.",
+      "image": "https://picsum.photos/seed/sweet-box-classic/800/600",
+      "minBoxes": 10,
+      "items": [
+        { "name": "Brownie", "quantity": 1 },
+        { "name": "Mini tortita", "quantity": 1 },
+        { "name": "Cookie", "quantity": 1 },
+        { "name": "Alfajor", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "sweet-box-premium",
+      "type": "sweet-box",
+      "name": "Caja Dulce Premium",
+      "description": "Una propuesta más elaborada, pensada para eventos especiales.",
+      "image": "https://picsum.photos/seed/sweet-box-premium/800/600",
+      "minBoxes": 10,
+      "items": [
+        { "name": "Brownie de chocolate belga", "quantity": 1 },
+        { "name": "Mini tarta de frutos rojos", "quantity": 1 },
+        { "name": "Macaron", "quantity": 2 },
+        { "name": "Alfajor de maicena artesanal", "quantity": 1 }
+      ]
+    }
+  ],
+  "savory": [
+    {
+      "id": "savory-experience-classic",
+      "type": "savory-experience",
+      "name": "Experiencia Clásica",
+      "description": "Una propuesta gastronómica completa para acompañar tu evento.",
+      "image": "https://picsum.photos/seed/savory-experience-classic/800/600",
+      "minGuests": 20,
+      "stages": [
+        { "name": "Entrada", "items": ["Bruschettas", "Bocaditos"] },
+        { "name": "Principal", "items": ["Mini sandwiches", "Empanadas"] },
+        { "name": "Cierre", "items": ["Tabla para compartir"] }
+      ]
+    },
+    {
+      "id": "savory-experience-premium",
+      "type": "savory-experience",
+      "name": "Experiencia Premium",
+      "description": "Una experiencia gastronómica de autor para eventos que buscan distinguirse.",
+      "image": "https://picsum.photos/seed/savory-experience-premium/800/600",
+      "minGuests": 30,
+      "stages": [
+        { "name": "Entrada", "items": ["Tartaletas de estación", "Bocaditos de autor"] },
+        { "name": "Principal", "items": ["Mini sandwiches gourmet", "Empanadas artesanales", "Brochettes"] },
+        { "name": "Cierre", "items": ["Tabla de quesos y fiambres", "Mesa dulce"] }
+      ]
+    }
+  ]
+}
