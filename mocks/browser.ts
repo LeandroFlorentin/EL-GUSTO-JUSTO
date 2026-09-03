@@ -7,9 +7,9 @@ export const worker = setupWorker(...handlers);
 let startPromise: ReturnType<typeof worker.start> | null = null;
 
 export async function enableMocking() {
-  if (process.env.NODE_ENV === 'production') {
-    return;
-  }
+  //if (process.env.NODE_ENV === 'production') {
+  //return;
+  //}
 
   if (!startPromise) {
     startPromise = worker.start({ onUnhandledRequest: 'bypass' });
