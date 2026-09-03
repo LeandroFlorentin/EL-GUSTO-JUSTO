@@ -1,17 +1,17 @@
 'use client';
 
-import SavoryCatalogSection from '@/features/catalog/components/SavoryCatalogSection/SavoryCatalogSection';
-import SweetCatalogSection from '@/features/catalog/components/SweetCatalogSection/SweetCatalogSection';
-import { useCatalog } from '@/features/catalog/hooks/use-catalog';
-import type { SavoryExperience } from '@/features/catalog/schemas/savory-experience.schema';
-import type { SweetBox } from '@/features/catalog/schemas/sweet-box.schema';
 import OrderDrawer from '@/features/order/components/OrderDrawer/OrderDrawer';
 import OrderTrigger from '@/features/order/components/OrderTrigger/OrderTrigger';
 import OrderProvider from '@/features/order/context/OrderProvider';
 import { useOrder } from '@/features/order/hooks/use-order';
+import SavoryServicesSection from '@/features/services/components/SavoryServicesSection/SavoryServicesSection';
+import SweetServicesSection from '@/features/services/components/SweetServicesSection/SweetServicesSection';
+import { useServices } from '@/features/services/hooks/use-services';
+import type { SavoryExperience } from '@/features/services/schemas/savory-experience.schema';
+import type { SweetBox } from '@/features/services/schemas/sweet-box.schema';
 
-const CatalogContent = () => {
-  const { data, isLoading, isError } = useCatalog();
+const ServicesContent = () => {
+  const { data, isLoading, isError } = useServices();
   const { addItem } = useOrder();
 
   const handleAddSweetBox = (box: SweetBox, boxes: number) => {
@@ -42,8 +42,8 @@ const CatalogContent = () => {
 
   return (
     <>
-      <SweetCatalogSection boxes={data.sweet} onAdd={handleAddSweetBox} />
-      <SavoryCatalogSection experiences={data.savory} onAdd={handleAddSavoryExperience} />
+      <SweetServicesSection boxes={data.sweet} onAdd={handleAddSweetBox} />
+      <SavoryServicesSection experiences={data.savory} onAdd={handleAddSavoryExperience} />
       <OrderTrigger />
       <OrderDrawer />
     </>
@@ -61,7 +61,7 @@ const ServicesView = () => {
           </p>
         </div>
 
-        <CatalogContent />
+        <ServicesContent />
       </div>
     </OrderProvider>
   );
