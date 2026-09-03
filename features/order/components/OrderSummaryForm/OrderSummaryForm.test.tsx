@@ -33,6 +33,27 @@ describe('OrderSummaryForm', () => {
     expect(screen.getByRole('button', { name: /finalizar pedido por whatsapp/i })).toBeDisabled();
   });
 
+  it('requires a name and event date before enabling submission', async () => {
+    render(
+      <>
+        <AddItemHelper />
+        <OrderSummaryForm />
+      </>,
+      { wrapper },
+    );
+
+    await userEvent.click(screen.getByRole('button', { name: /agregar helper/i }));
+
+    const submitButton = screen.getByRole('button', { name: /finalizar pedido por whatsapp/i });
+    expect(submitButton).toBeDisabled();
+
+    await userEvent.type(screen.getByLabelText(/nombre/i), 'Juan');
+    expect(submitButton).toBeDisabled();
+
+    await userEvent.type(screen.getByLabelText(/fecha del evento/i), '15/12/2026');
+    expect(submitButton).toBeEnabled();
+  });
+
   it('opens WhatsApp with the generated message on submit', async () => {
     const openSpy = vi.spyOn(window, 'open').mockImplementation(() => null);
 
@@ -46,6 +67,7 @@ describe('OrderSummaryForm', () => {
 
     await userEvent.click(screen.getByRole('button', { name: /agregar helper/i }));
     await userEvent.type(screen.getByLabelText(/nombre/i), 'Juan');
+    await userEvent.type(screen.getByLabelText(/fecha del evento/i), '15/12/2026');
     await userEvent.click(screen.getByRole('button', { name: /finalizar pedido por whatsapp/i }));
 
     expect(openSpy).toHaveBeenCalledTimes(1);

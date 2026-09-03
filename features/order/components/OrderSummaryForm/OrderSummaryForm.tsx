@@ -12,6 +12,7 @@ const OrderSummaryForm = () => {
   const [comments, setComments] = useState(customer.comments);
 
   const hasItems = items.length > 0;
+  const hasRequiredCustomerData = name.trim().length > 0 && eventDate.trim().length > 0;
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -34,6 +35,7 @@ const OrderSummaryForm = () => {
         <input
           id="order-customer-name"
           type="text"
+          required
           value={name}
           onChange={(event) => setName(event.target.value)}
           className="rounded-lg border border-border bg-surface px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none"
@@ -48,6 +50,7 @@ const OrderSummaryForm = () => {
           id="order-event-date"
           type="text"
           placeholder="15/12/2026"
+          required
           value={eventDate}
           onChange={(event) => setEventDate(event.target.value)}
           className="rounded-lg border border-border bg-surface px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none"
@@ -69,7 +72,7 @@ const OrderSummaryForm = () => {
 
       <button
         type="submit"
-        disabled={!hasItems}
+        disabled={!hasItems || !hasRequiredCustomerData}
         className="rounded-full bg-accent px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-40 cursor-pointer"
       >
         Finalizar pedido por WhatsApp
