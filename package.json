@@ -57,5 +57,10 @@
       "biome check --write --no-errors-on-unmatched"
     ]
   },
-  "packageManager": "pnpm@11.24.0"
+  "packageManager": "pnpm@11.24.0",
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  }
 }
