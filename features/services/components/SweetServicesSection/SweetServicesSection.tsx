@@ -4,7 +4,7 @@ import type { SweetServicesSectionProps } from './SweetServicesSection.types';
 
 const SweetServicesSection = ({ boxes, onAdd }: SweetServicesSectionProps) => {
   return (
-    <section className="py-12 md:py-16" aria-label="Propuestas dulces">
+    <section className="py-2 md:py-6" aria-label="Propuestas dulces">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <h2 className="text-center font-serif text-4xl text-foreground md:text-5xl">Dulce</h2>
