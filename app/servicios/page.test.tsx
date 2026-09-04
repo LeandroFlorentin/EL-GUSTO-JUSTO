@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
+import OrderFloatingActions from '@/features/order/components/OrderFloatingActions/OrderFloatingActions';
 import ServicesView from '../servicios/_components/ServicesView/ServicesView';
 
 const renderPage = () => {
@@ -9,7 +10,9 @@ const renderPage = () => {
 
   return render(
     <QueryClientProvider client={queryClient}>
-      <ServicesView />
+      <OrderFloatingActions>
+        <ServicesView />
+      </OrderFloatingActions>
     </QueryClientProvider>,
   );
 };

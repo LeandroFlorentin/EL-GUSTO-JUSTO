@@ -1,14 +1,12 @@
 'use client';
 
-import OrderDrawer from '@/features/order/components/OrderDrawer/OrderDrawer';
-import OrderTrigger from '@/features/order/components/OrderTrigger/OrderTrigger';
-import OrderProvider from '@/features/order/context/OrderProvider';
 import { useOrder } from '@/features/order/hooks/use-order';
 import SavoryServicesSection from '@/features/services/components/SavoryServicesSection/SavoryServicesSection';
 import SweetServicesSection from '@/features/services/components/SweetServicesSection/SweetServicesSection';
 import { useServices } from '@/features/services/hooks/use-services';
 import type { SavoryExperience } from '@/features/services/schemas/savory-experience.schema';
 import type { SweetBox } from '@/features/services/schemas/sweet-box.schema';
+import ServiceCardSkeleton from '@/shared/components/ServiceCardSkeleton/ServiceCardSkeleton';
 
 const ServicesContent = () => {
   const { data, isLoading, isError } = useServices();
@@ -29,7 +27,16 @@ const ServicesContent = () => {
   };
 
   if (isLoading) {
-    return <p className="py-24 text-center text-sm text-foreground-muted">Cargando servicios...</p>;
+    return (
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {Array.from({ length: 6 }).map((_, index) => (
+            // biome-ignore lint/suspicious/noArrayIndexKey: skeleton placeholders have no stable identity
+            <ServiceCardSkeleton key={index} />
+          ))}
+        </div>
+      </div>
+    );
   }
 
   if (isError || !data) {
@@ -44,23 +51,19 @@ const ServicesContent = () => {
     <>
       <SweetServicesSection boxes={data.sweet} onAdd={handleAddSweetBox} />
       <SavoryServicesSection experiences={data.savory} onAdd={handleAddSavoryExperience} />
-      <OrderTrigger />
-      <OrderDrawer />
     </>
   );
 };
 
 const ServicesView = () => {
   return (
-    <OrderProvider>
-      <div className="bg-background text-foreground">
-        <div className="mx-auto max-w-3xl px-4 pt-16 text-center sm:px-6 lg:px-8">
-          <h1 className="font-serif text-4xl text-foreground md:text-5xl">Conoce nuestros servicios</h1>
-        </div>
-
-        <ServicesContent />
+    <div className="bg-background text-foreground">
+      <div className="mx-auto max-w-3xl px-4 pt-16 text-center sm:px-6 lg:px-8">
+        <h1 className="font-serif text-4xl text-foreground md:text-5xl">Conoce nuestros servicios</h1>
       </div>
-    </OrderProvider>
+
+      <ServicesContent />
+    </div>
   );
 };
 

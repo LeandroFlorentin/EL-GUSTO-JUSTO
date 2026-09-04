@@ -64,6 +64,8 @@ describe('OrderDrawer', () => {
     await userEvent.click(screen.getByRole('button', { name: /abrir/i }));
 
     expect(screen.getByText(/todavía no seleccionaste nada/i)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /ver servicios/i })).toHaveAttribute('href', '/servicios');
+    expect(screen.queryByRole('button', { name: /finalizar pedido por whatsapp/i })).not.toBeInTheDocument();
   });
 
   it('lists sweet and savory items grouped by section', async () => {

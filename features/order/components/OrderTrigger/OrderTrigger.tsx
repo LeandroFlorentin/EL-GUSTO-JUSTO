@@ -11,7 +11,7 @@ const OrderTrigger = ({ className }: OrderTriggerProps) => {
     <button
       type="button"
       onClick={toggleDrawer}
-      className={`fixed right-5 bottom-5 z-40 flex items-center gap-2 rounded-full bg-foreground px-5 py-3 font-sans text-sm font-semibold text-accent shadow-lg transition-transform hover:-translate-y-0.5 ${className ?? ''} cursor-pointer`}
+      className={`flex items-center gap-2 rounded-full bg-foreground px-5 py-3 font-sans text-sm font-semibold text-accent shadow-lg transition-transform hover:-translate-y-0.5 ${className ?? ''} cursor-pointer`}
     >
       <CalendarHeart size={18} />
       Tu pedido

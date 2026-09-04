@@ -41,7 +41,7 @@ const HomeHero = () => {
 
           <motion.div variants={itemVariants} className="mt-8 flex flex-wrap items-center gap-4">
             <a
-              href="#contacto"
+              href="/contacto"
               className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
             >
               Solicitar presupuesto
@@ -49,7 +49,7 @@ const HomeHero = () => {
             </a>
 
             <a
-              href="#servicios"
+              href="/servicios"
               className="inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
             >
               Ver servicios

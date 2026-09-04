@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { Mail } from 'lucide-react';
 import { describe, expect, it } from 'vitest';
+import { WhatsAppIcon } from '@/shared/components/icons/WhatsAppIcon';
 import type { ContactChannel } from '../../types/contact';
-import { WhatsAppIcon } from '../icons/WhatsAppIcon';
 import ContactCard from './ContactCard';
 
 const mockWhatsAppChannel: ContactChannel = {
