@@ -3,7 +3,10 @@ import { afterAll, afterEach, beforeAll } from 'vitest';
 import { server } from './mocks/server';
 
 beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
-afterEach(() => server.resetHandlers());
+afterEach(() => {
+  server.resetHandlers();
+  window.localStorage.clear();
+});
 afterAll(() => server.close());
 
 // jsdom no implementa IntersectionObserver; lo necesita `motion` para animaciones `whileInView`.
