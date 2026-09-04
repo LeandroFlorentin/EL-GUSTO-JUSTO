@@ -13,23 +13,23 @@ export const buildWhatsAppMessage = (order: Order) => {
   const sections = ['Hola, quisiera consultar por el siguiente pedido para un evento:'];
 
   if (sweetItems.length > 0) {
-    sections.push(['DULCE', ...sweetItems.map(formatSweetItem)].join('\n\n'));
+    sections.push(['DULCE', ...sweetItems.map(formatSweetItem)].join('\n'));
   }
 
   if (savoryItems.length > 0) {
-    sections.push(['SALADO', ...savoryItems.map(formatSavoryItem)].join('\n\n'));
+    sections.push(['SALADO', ...savoryItems.map(formatSavoryItem)].join('\n'));
   }
 
   if (order.customer.eventDate) {
-    sections.push(`Fecha del evento:\n${order.customer.eventDate}`);
+    sections.push(`Fecha del evento: ${order.customer.eventDate}`);
   }
 
   if (order.customer.name) {
-    sections.push(`Nombre:\n${order.customer.name}`);
+    sections.push(`Nombre: ${order.customer.name}`);
   }
 
   if (order.customer.comments) {
-    sections.push(`Comentarios:\n${order.customer.comments}`);
+    sections.push(`Comentarios: ${order.customer.comments}`);
   }
 
   return sections.join('\n\n');
