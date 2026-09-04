@@ -61,7 +61,7 @@ const AboutProposalSection = () => {
               transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
               className="rounded-2xl border border-border bg-background-secondary p-6 text-center md:p-7"
             >
-              <div className="mx-auto mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-accent">
+              <div className="mx-auto mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-foreground text-accent">
                 <Icon size={24} />
               </div>
               <h3 className="text-xl font-semibold text-foreground">{title}</h3>
