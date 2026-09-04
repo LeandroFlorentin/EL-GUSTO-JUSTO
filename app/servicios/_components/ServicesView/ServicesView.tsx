@@ -57,7 +57,7 @@ const ServicesContent = () => {
 
 const ServicesView = () => {
   return (
-    <div className="bg-background text-foreground">
+    <div className="bg-background pb-28 text-foreground">
       <ServicesContent />
     </div>
   );
