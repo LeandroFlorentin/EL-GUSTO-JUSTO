@@ -20,7 +20,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: 'Sabores',
+  title: 'El Gusto Justo',
   description: 'Catering & Eventos',
 };
 

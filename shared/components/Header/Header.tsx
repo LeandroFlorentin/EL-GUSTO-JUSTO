@@ -22,7 +22,7 @@ const Header = () => {
             <Image src="/logo.png" alt="Logo" width={40} height={40} className="h-10 w-10 md:h-15 md:w-15" />
 
             <div className="flex flex-col md:items-center">
-              <h3 className="font-serif text-base font-bold text-foreground md:text-xl">SABOR&ESTILO</h3>
+              <h3 className="font-serif text-base font-bold text-foreground md:text-xl">EL GUSTO JUSTO</h3>
 
               <h5 className="font-serif text-xs font-semibold text-foreground md:text-sm">Catering</h5>
             </div>
@@ -53,7 +53,7 @@ const Header = () => {
               <Image src="/logo.png" alt="Logo" width={40} height={40} className="h-10 w-10" />
 
               <div>
-                <h3 className="font-serif font-bold text-foreground">SABOR&ESTILO</h3>
+                <h3 className="font-serif font-bold text-foreground">EL GUSTO JUSTO</h3>
 
                 <p className="font-serif text-xs text-foreground">Catering</p>
               </div>
