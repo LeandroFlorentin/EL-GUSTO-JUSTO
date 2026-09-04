@@ -20,8 +20,8 @@ const mockWhatsAppChannel: ContactChannel = {
 const mockEmailChannel: ContactChannel = {
   id: 'email',
   title: 'Correo Electrónico',
-  value: 'contacto@saboresyestilo.com',
-  href: 'mailto:contacto@saboresyestilo.com',
+  value: 'contacto@elgustojusto.com',
+  href: 'mailto:contacto@elgustojusto.com',
   icon: Mail,
   actionText: 'Enviar email',
   description: 'Escribinos para propuestas',
@@ -52,7 +52,7 @@ describe('ContactCard', () => {
     render(<ContactCard channel={mockEmailChannel} />);
 
     const link = screen.getByRole('link', { name: /Enviar email/i });
-    expect(link).toHaveAttribute('href', 'mailto:contacto@saboresyestilo.com');
+    expect(link).toHaveAttribute('href', 'mailto:contacto@elgustojusto.com');
     expect(link).not.toHaveAttribute('target');
   });
 });

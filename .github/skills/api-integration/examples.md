@@ -661,7 +661,7 @@ import { Providers } from './providers';
 import MainLayout from '@/shared/layouts/MainLayout/MainLayout';
 
 export const metadata = {
-  title: 'Sabores',
+  title: 'El Gusto Justo',
   description: 'Catering & Eventos',
 };
 

@@ -19,8 +19,8 @@ export const contactChannels: ContactChannel[] = [
   {
     id: 'email',
     title: 'Correo Electrónico',
-    value: 'contacto@saboresyestilo.com',
-    href: 'mailto:contacto@saboresyestilo.com',
+    value: 'contacto@elgustojusto.com',
+    href: 'mailto:contacto@elgustojusto.com',
     icon: Mail,
     actionText: 'Enviar email',
     description: 'Escribinos para propuestas corporativas o consultas detalladas.',
@@ -29,8 +29,8 @@ export const contactChannels: ContactChannel[] = [
   {
     id: 'instagram',
     title: 'Instagram',
-    value: '@saboresyestilo',
-    href: 'https://instagram.com/saboresyestilo',
+    value: '@elgustojusto',
+    href: 'https://instagram.com/elgustojusto',
     icon: InstagramIcon,
     actionText: 'Ver perfil',
     description: 'Descubrí nuestras últimas creaciones, eventos e inspiración.',
