@@ -58,10 +58,6 @@ const ServicesContent = () => {
 const ServicesView = () => {
   return (
     <div className="bg-background text-foreground">
-      <div className="mx-auto max-w-3xl px-4 pt-16 text-center sm:px-6 lg:px-8">
-        <h1 className="font-serif text-4xl text-foreground md:text-5xl">Conoce nuestros servicios</h1>
-      </div>
-
       <ServicesContent />
     </div>
   );
