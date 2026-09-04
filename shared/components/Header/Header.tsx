@@ -1,6 +1,7 @@
 'use client';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 
 import NavBar from '../NavBar/NavBar';
@@ -13,7 +14,11 @@ const Header = () => {
       <header className="h-20 w-full md:h-30">
         <div className="grid h-full grid-cols-12 items-center px-4 md:px-8">
           {/* Logo */}
-          <div className="col-span-8 flex items-center gap-3 md:col-span-2 md:flex-col md:justify-center md:gap-0">
+          <Link
+            href="/"
+            aria-label="Ir al inicio"
+            className="col-span-8 flex items-center gap-3 md:col-span-2 md:flex-col md:justify-center md:gap-0"
+          >
             <Image src="/logo.png" alt="Logo" width={40} height={40} className="h-10 w-10 md:h-15 md:w-15" />
 
             <div className="flex flex-col md:items-center">
@@ -21,7 +26,7 @@ const Header = () => {
 
               <h5 className="font-serif text-xs font-semibold text-foreground md:text-sm">Catering</h5>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop nav */}
           <NavBar className="col-span-10 hidden items-center justify-center gap-10 md:flex" />
@@ -44,7 +49,7 @@ const Header = () => {
       {isMenuOpen && (
         <div className="fixed inset-0 z-50 flex flex-col bg-background md:hidden">
           <div className="flex items-center justify-between p-5">
-            <div className="flex items-center gap-3">
+            <Link href="/" aria-label="Ir al inicio" className="flex items-center gap-3">
               <Image src="/logo.png" alt="Logo" width={40} height={40} className="h-10 w-10" />
 
               <div>
@@ -52,7 +57,7 @@ const Header = () => {
 
                 <p className="font-serif text-xs text-foreground">Catering</p>
               </div>
-            </div>
+            </Link>
 
             <button
               type="button"
