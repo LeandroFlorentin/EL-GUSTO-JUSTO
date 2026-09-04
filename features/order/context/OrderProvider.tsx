@@ -1,6 +1,7 @@
 'use client';
 
-import { createContext, useCallback, useMemo, useState } from 'react';
+import { createContext, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { clearOrderState, loadOrderState, saveOrderState } from '@/features/order/lib/order-storage';
 import type { OrderCustomer, OrderItem } from '@/features/order/types/order';
 import type { OrderContextValue, OrderProviderProps } from './OrderProvider.types';
 
@@ -17,6 +18,22 @@ const OrderProvider = ({ children }: OrderProviderProps) => {
   const [items, setItems] = useState<OrderItem[]>([]);
   const [customer, setCustomerState] = useState<OrderCustomer>(emptyCustomer);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const hasLoadedFromStorage = useRef(false);
+
+  // hydrate from localStorage after mount to avoid SSR/client markup mismatches
+  useEffect(() => {
+    const stored = loadOrderState();
+    if (stored) {
+      setItems(stored.items);
+      setCustomerState(stored.customer);
+    }
+    hasLoadedFromStorage.current = true;
+  }, []);
+
+  useEffect(() => {
+    if (!hasLoadedFromStorage.current) return;
+    saveOrderState({ items, customer });
+  }, [items, customer]);
 
   const addItem = useCallback((item: OrderItem) => {
     setItems((current) => {
@@ -46,6 +63,7 @@ const OrderProvider = ({ children }: OrderProviderProps) => {
   const reset = useCallback(() => {
     setItems([]);
     setCustomerState(emptyCustomer);
+    clearOrderState();
   }, []);
 
   const openDrawer = useCallback(() => setIsDrawerOpen(true), []);

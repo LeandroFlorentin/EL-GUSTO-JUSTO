@@ -6,7 +6,7 @@ import { buildWhatsAppMessage } from '@/features/order/lib/build-whatsapp-messag
 import { buildWhatsAppLink } from '@/shared/lib/whatsapp-link';
 
 const OrderSummaryForm = () => {
-  const { items, customer, setCustomer } = useOrder();
+  const { items, customer, setCustomer, reset, closeDrawer } = useOrder();
   const [name, setName] = useState(customer.name);
   const [eventDate, setEventDate] = useState(customer.eventDate);
   const [comments, setComments] = useState(customer.comments);
@@ -24,6 +24,12 @@ const OrderSummaryForm = () => {
     const link = buildWhatsAppLink(message);
 
     window.open(link, '_blank', 'noopener,noreferrer');
+
+    setName('');
+    setEventDate('');
+    setComments('');
+    reset();
+    closeDrawer();
   };
 
   return (
