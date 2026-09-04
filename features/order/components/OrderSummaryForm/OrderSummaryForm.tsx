@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useOrder } from '@/features/order/hooks/use-order';
 import { buildWhatsAppMessage } from '@/features/order/lib/build-whatsapp-message';
-import { buildWhatsAppLink } from '@/features/order/lib/whatsapp-link';
+import { buildWhatsAppLink } from '@/shared/lib/whatsapp-link';
 
 const OrderSummaryForm = () => {
   const { items, customer, setCustomer } = useOrder();

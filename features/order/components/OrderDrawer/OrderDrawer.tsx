@@ -2,6 +2,7 @@
 
 import { X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
+import Link from 'next/link';
 import { useOrder } from '@/features/order/hooks/use-order';
 import OrderItemRow from '../OrderItemRow/OrderItemRow';
 import OrderSummaryForm from '../OrderSummaryForm/OrderSummaryForm';
@@ -48,9 +49,18 @@ const OrderDrawer = () => {
             </div>
 
             {items.length === 0 ? (
-              <p className="mt-8 text-sm text-foreground-muted">
-                Todavía no seleccionaste nada. Recorré los servicios y agregá lo que necesites para tu evento.
-              </p>
+              <div className="mt-8 flex flex-col items-start gap-4">
+                <p className="text-sm text-foreground-muted">
+                  Todavía no seleccionaste nada. Recorré los servicios y agregá lo que necesites para tu evento.
+                </p>
+                <Link
+                  href="/servicios"
+                  onClick={closeDrawer}
+                  className="rounded-full bg-accent px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-accent-hover"
+                >
+                  Ver servicios
+                </Link>
+              </div>
             ) : (
               <div className="mt-6 flex flex-col gap-6">
                 {sweetItems.length > 0 && (
@@ -87,9 +97,11 @@ const OrderDrawer = () => {
               </div>
             )}
 
-            <div className="mt-auto pt-6">
-              <OrderSummaryForm />
-            </div>
+            {items.length > 0 && (
+              <div className="mt-auto pt-6">
+                <OrderSummaryForm />
+              </div>
+            )}
           </motion.aside>
         </>
       )}

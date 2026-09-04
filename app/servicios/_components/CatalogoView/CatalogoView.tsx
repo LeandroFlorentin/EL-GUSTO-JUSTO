@@ -9,6 +9,7 @@ import SweetServicesSection from '@/features/services/components/SweetServicesSe
 import { useServices } from '@/features/services/hooks/use-services';
 import type { SavoryExperience } from '@/features/services/schemas/savory-experience.schema';
 import type { SweetBox } from '@/features/services/schemas/sweet-box.schema';
+import ServiceCardSkeleton from '@/shared/components/ServiceCardSkeleton/ServiceCardSkeleton';
 
 const ServicesContent = () => {
   const { data, isLoading, isError } = useServices();
@@ -29,7 +30,16 @@ const ServicesContent = () => {
   };
 
   if (isLoading) {
-    return <p className="py-24 text-center text-sm text-foreground-muted">Cargando catálogo...</p>;
+    return (
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {Array.from({ length: 6 }).map((_, index) => (
+            // biome-ignore lint/suspicious/noArrayIndexKey: skeleton placeholders have no stable identity
+            <ServiceCardSkeleton key={index} />
+          ))}
+        </div>
+      </div>
+    );
   }
 
   if (isError || !data) {

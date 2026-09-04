@@ -3,6 +3,7 @@ import { MotionConfig } from 'motion/react';
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, Montserrat } from 'next/font/google';
 import Providers from '@/app/providers';
+import OrderFloatingActions from '@/features/order/components/OrderFloatingActions/OrderFloatingActions';
 import MainLayout from '@/shared/layouts/MainLayout/MainLayout';
 
 const cormorant = Cormorant_Garamond({
@@ -34,7 +35,9 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <MotionConfig reducedMotion="user">
           <Providers>
-            <MainLayout>{children}</MainLayout>
+            <OrderFloatingActions>
+              <MainLayout>{children}</MainLayout>
+            </OrderFloatingActions>
           </Providers>
         </MotionConfig>
       </body>

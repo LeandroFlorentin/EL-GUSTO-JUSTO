@@ -1,16 +1,15 @@
 import { Clock, Mail, MapPin } from 'lucide-react';
-import { InstagramIcon } from '../components/icons/InstagramIcon';
-import { WhatsAppIcon } from '../components/icons/WhatsAppIcon';
+import { InstagramIcon } from '@/shared/components/icons/InstagramIcon';
+import { WhatsAppIcon } from '@/shared/components/icons/WhatsAppIcon';
+import { buildWhatsAppLink } from '@/shared/lib/whatsapp-link';
 import type { ContactChannel } from '../types/contact';
-
-const WHATSAPP_PHONE_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_PHONE_NUMBER || '5491100000000';
 
 export const contactChannels: ContactChannel[] = [
   {
     id: 'whatsapp',
     title: 'WhatsApp Directo',
     value: '+54 9 11 0000-0000',
-    href: `https://wa.me/${WHATSAPP_PHONE_NUMBER}`,
+    href: buildWhatsAppLink(),
     icon: WhatsAppIcon,
     actionText: 'Iniciar conversación',
     description: 'Atención personalizada e inmediata para presupuestos y consultas.',
