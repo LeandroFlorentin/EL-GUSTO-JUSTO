@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import { Mail, MessageCircle } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { describe, expect, it } from 'vitest';
 import type { ContactChannel } from '../../types/contact';
+import { WhatsAppIcon } from '../icons/WhatsAppIcon';
 import ContactCard from './ContactCard';
 
 const mockWhatsAppChannel: ContactChannel = {
@@ -9,7 +10,7 @@ const mockWhatsAppChannel: ContactChannel = {
   title: 'WhatsApp Directo',
   value: '+54 9 11 0000-0000',
   href: 'https://wa.me/5491100000000',
-  icon: MessageCircle,
+  icon: WhatsAppIcon,
   actionText: 'Iniciar conversación',
   description: 'Atención personalizada',
   isExternal: true,
